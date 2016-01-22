@@ -169,7 +169,7 @@ def copy_from(source, destination)
 end
 
 def copy_from_repo(filename, opts = {})
-  repo = 'https://raw.github.com/RailsApps/rails-composer/master/files/'
+  repo = 'https://raw.github.com/timcase/rails-composer/master/files/'
   repo = opts[:repo] unless opts[:repo].nil?
   if (!opts[:prefs].nil?) && (!prefs.has_value? opts[:prefs])
     return
@@ -1710,7 +1710,7 @@ stage_two do
           gsub_file "config/database.yml", /password:/, "password: #{pg_password}"
           say_wizard "set config/database.yml for username/password #{pg_username}/#{pg_password}"
         end
-        if pg_host.present?
+        if false#pg_host.present?
           gsub_file "config/database.yml", /  host:     localhost/, "  host:     #{pg_host}"
         end
       rescue StandardError => e
