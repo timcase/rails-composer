@@ -14,7 +14,7 @@
 #   make changes to the recipes in the rails_apps_composer gem.
 #
 #   For more information, see:
-#   https://github.com/RailsApps/rails_apps_composer/
+#   https://github.com/timcase/rails_apps_composer/
 #
 #   Thank you to Michael Bleigh for leading the way with the RailsWizard gem.
 #
@@ -209,7 +209,7 @@ def html_to_haml(source)
     Html2haml::HTML.new(html, :erb => true, :xhtml => true).render
   rescue RubyParser::SyntaxError
     say_wizard "Ignoring RubyParser::SyntaxError"
-    # special case to accommodate https://github.com/RailsApps/rails-composer/issues/55
+    # special case to accommodate https://github.com/timcase/rails-composer/issues/55
     html = open(source) {|input| input.binmode.read }
     say_wizard "applying patch" if html.include? 'card_month'
     say_wizard "applying patch" if html.include? 'card_year'
@@ -300,7 +300,7 @@ say_recipe 'core'
 # >----------------------------- recipes/core.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/core.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/core.rb
 
 ## Git
 say_wizard "selected all core recipes"
@@ -316,13 +316,13 @@ say_recipe 'git'
 # >----------------------------- recipes/git.rb ------------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/git.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/git.rb
 
 ## Git
 say_wizard "initialize git"
 prefs[:git] = true unless prefs.has_key? :git
 if prefer :git, true
-  copy_from 'https://raw.github.com/RailsApps/rails-composer/master/files/gitignore.txt', '.gitignore'
+  copy_from 'https://raw.github.com/timcase/rails-composer/master/files/gitignore.txt', '.gitignore'
   git :init
   git :add => '-A'
   git :commit => '-qm "rails_apps_composer: initial commit"'
@@ -346,7 +346,7 @@ say_recipe 'railsapps'
 # >-------------------------- recipes/railsapps.rb ---------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/railsapps.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/railsapps.rb
 
 raise if (defined? defaults) || (defined? preferences) # Shouldn't happen.
 if options[:verbose]
@@ -448,7 +448,7 @@ say_recipe 'learn_rails'
 # >------------------------- recipes/learn_rails.rb --------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/learn_rails.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/learn_rails.rb
 
 if prefer :apps4, 'learn-rails'
 
@@ -489,7 +489,7 @@ if prefer :apps4, 'learn-rails'
 
   stage_three do
     say_wizard "recipe stage three"
-    repo = 'https://raw.github.com/RailsApps/learn-rails/master/'
+    repo = 'https://raw.github.com/timcase/learn-rails/master/'
 
     # >-------------------------------[ Models ]--------------------------------<
 
@@ -538,7 +538,7 @@ say_recipe 'rails_bootstrap'
 # >----------------------- recipes/rails_bootstrap.rb ------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_bootstrap.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_bootstrap.rb
 
 if prefer :apps4, 'rails-bootstrap'
   prefs[:authentication] = false
@@ -568,7 +568,7 @@ say_recipe 'rails_foundation'
 # >----------------------- recipes/rails_foundation.rb -----------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_foundation.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_foundation.rb
 
 if prefer :apps4, 'rails-foundation'
   prefs[:authentication] = false
@@ -598,7 +598,7 @@ say_recipe 'rails_omniauth'
 # >------------------------ recipes/rails_omniauth.rb ------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_omniauth.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_omniauth.rb
 
 if prefer :apps4, 'rails-omniauth'
   prefs[:authentication] = 'omniauth'
@@ -626,7 +626,7 @@ say_recipe 'rails_devise'
 # >------------------------- recipes/rails_devise.rb -------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_devise.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_devise.rb
 
 if prefer :apps4, 'rails-devise'
   prefs[:authentication] = 'devise'
@@ -653,7 +653,7 @@ say_recipe 'rails_devise_roles'
 # >---------------------- recipes/rails_devise_roles.rb ----------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_devise_roles.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_devise_roles.rb
 
 if prefer :apps4, 'rails-devise-roles'
   prefs[:authentication] = 'devise'
@@ -679,7 +679,7 @@ say_recipe 'rails_devise_pundit'
 # >--------------------- recipes/rails_devise_pundit.rb ----------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_devise_pundit.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_devise_pundit.rb
 
 if prefer :apps4, 'rails-devise-pundit'
   prefs[:authentication] = 'devise'
@@ -705,7 +705,7 @@ say_recipe 'rails_signup_download'
 # >-------------------- recipes/rails_signup_download.rb ---------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_signup_download.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_signup_download.rb
 
 if prefer :apps4, 'rails-signup-download'
   prefs[:authentication] = 'devise'
@@ -728,7 +728,7 @@ if prefer :apps4, 'rails-signup-download'
 
   stage_three do
     say_wizard "recipe stage three"
-    repo = 'https://raw.github.com/RailsApps/rails-signup-download/master/'
+    repo = 'https://raw.github.com/timcase/rails-signup-download/master/'
 
     # >-------------------------------[ Config ]---------------------------------<
 
@@ -775,7 +775,7 @@ say_recipe 'rails_mailinglist_activejob'
 # >----------------- recipes/rails_mailinglist_activejob.rb ------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_mailinglist_activejob.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_mailinglist_activejob.rb
 
 if prefer :apps4, 'rails-mailinglist-activejob'
   prefs[:authentication] = false
@@ -804,7 +804,7 @@ if prefer :apps4, 'rails-mailinglist-activejob'
 
   stage_three do
     say_wizard "recipe stage three"
-    repo = 'https://raw.github.com/RailsApps/rails-mailinglist-activejob/master/'
+    repo = 'https://raw.github.com/timcase/rails-mailinglist-activejob/master/'
 
     # >-------------------------------[ Config ]---------------------------------<
 
@@ -852,7 +852,7 @@ say_recipe 'rails_stripe_checkout'
 # >-------------------- recipes/rails_stripe_checkout.rb ---------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_stripe_checkout.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_stripe_checkout.rb
 
 if prefer :apps4, 'rails-stripe-checkout'
   prefs[:frontend] = 'bootstrap3'
@@ -882,7 +882,7 @@ if prefer :apps4, 'rails-stripe-checkout'
 
   stage_three do
     say_wizard "recipe stage three"
-    repo = 'https://raw.github.com/RailsApps/rails-stripe-checkout/master/'
+    repo = 'https://raw.github.com/timcase/rails-stripe-checkout/master/'
 
     # >-------------------------------[ Config ]---------------------------------<
 
@@ -937,7 +937,7 @@ say_recipe 'rails_stripe_coupons'
 # >--------------------- recipes/rails_stripe_coupons.rb ---------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_stripe_coupons.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_stripe_coupons.rb
 
 if prefer :apps4, 'rails-stripe-coupons'
   prefs[:frontend] = 'bootstrap3'
@@ -967,7 +967,7 @@ if prefer :apps4, 'rails-stripe-coupons'
 
   stage_three do
     say_wizard "recipe stage three"
-    repo = 'https://raw.github.com/RailsApps/rails-stripe-coupons/master/'
+    repo = 'https://raw.github.com/timcase/rails-stripe-coupons/master/'
 
     # >-------------------------------[ Migrations ]---------------------------------<
 
@@ -1062,7 +1062,7 @@ say_recipe 'rails_stripe_membership_saas'
 # >----------------- recipes/rails_stripe_membership_saas.rb -----------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/rails_stripe_membership_saas.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/rails_stripe_membership_saas.rb
 
 if prefer :apps4, 'rails-stripe-membership-saas'
   prefs[:frontend] = 'bootstrap3'
@@ -1091,7 +1091,7 @@ if prefer :apps4, 'rails-stripe-membership-saas'
 
   stage_three do
     say_wizard "recipe stage three"
-    repo = 'https://raw.github.com/RailsApps/rails-stripe-membership-saas/master/'
+    repo = 'https://raw.github.com/timcase/rails-stripe-membership-saas/master/'
 
     # >-------------------------------[ Migrations ]---------------------------------<
 
@@ -1175,7 +1175,7 @@ say_recipe 'setup'
 # >---------------------------- recipes/setup.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/setup.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/setup.rb
 
 ## Ruby on Rails
 HOST_OS = RbConfig::CONFIG['host_os']
@@ -1343,7 +1343,7 @@ say_recipe 'locale'
 # >---------------------------- recipes/locale.rb ----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/locale.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/locale.rb
 
 unless prefs[:locale]
   prefs[:locale] = ask_wizard('Set a locale? Enter nothing for English, or es, de, etc:')
@@ -1375,7 +1375,7 @@ say_recipe 'readme'
 # >---------------------------- recipes/readme.rb ----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/readme.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/readme.rb
 
 stage_three do
   say_wizard "recipe stage three"
@@ -1392,7 +1392,7 @@ stage_three do
   append_to_file 'README' do <<-TEXT
 Rails Composer is supported by developers who purchase our RailsApps tutorials.
 Need help? Ask on Stack Overflow with the tag 'railsapps.'
-Problems? Submit an issue: https://github.com/RailsApps/rails_apps_composer/issues
+Problems? Submit an issue: https://github.com/timcase/rails_apps_composer/issues
 Your application contains diagnostics in this README file.
 Please provide a copy of this README file when reporting any issues.
 \n
@@ -1489,7 +1489,7 @@ TEXT
   end
 
   append_to_file 'README.md' do <<-TEXT
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
+This application was generated with the [rails_apps_composer](https://github.com/timcase/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
 
 Rails Composer is supported by developers who purchase our RailsApps tutorials.
@@ -1501,7 +1501,7 @@ Need help? Ask on Stack Overflow with the tag 'railsapps.'
 
 Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
+If the application doesn't work as expected, please [report an issue](https://github.com/timcase/rails_apps_composer/issues)
 and include the diagnostics.
 
 Ruby on Rails
@@ -1553,7 +1553,7 @@ say_recipe 'gems'
 # >----------------------------- recipes/gems.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/gems.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/gems.rb
 
 ### GEMFILE ###
 
@@ -1829,7 +1829,7 @@ say_recipe 'tests'
 # >---------------------------- recipes/tests.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/tests.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/tests.rb
 
 stage_two do
   say_wizard "recipe stage two"
@@ -1889,7 +1889,7 @@ say_recipe 'email'
 # >---------------------------- recipes/email.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/email.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/email.rb
 
 stage_two do
   say_wizard "recipe stage two"
@@ -1955,7 +1955,7 @@ say_recipe 'devise'
 # >---------------------------- recipes/devise.rb ----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/devise.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/devise.rb
 
 stage_two do
   say_wizard "recipe stage two"
@@ -1990,17 +1990,17 @@ say_recipe 'omniauth'
 # >--------------------------- recipes/omniauth.rb ---------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/omniauth.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/omniauth.rb
 
 stage_two do
   say_wizard "recipe stage two"
   if prefer :authentication, 'omniauth'
-    repo = 'https://raw.github.com/RailsApps/rails-omniauth/master/'
+    repo = 'https://raw.github.com/timcase/rails-omniauth/master/'
     copy_from_repo 'config/initializers/omniauth.rb', :repo => repo
     gsub_file 'config/initializers/omniauth.rb', /twitter/, prefs[:omniauth_provider] unless prefer :omniauth_provider, 'twitter'
     generate 'model User name:string provider:string uid:string'
     run 'bundle exec rake db:migrate'
-    copy_from_repo 'app/models/user.rb', :repo => 'https://raw.github.com/RailsApps/rails-omniauth/master/'
+    copy_from_repo 'app/models/user.rb', :repo => 'https://raw.github.com/timcase/rails-omniauth/master/'
     copy_from_repo 'app/controllers/application_controller.rb', :repo => repo
     filename = 'app/controllers/sessions_controller.rb'
     copy_from_repo filename, :repo => repo
@@ -2029,7 +2029,7 @@ say_recipe 'roles'
 # >---------------------------- recipes/roles.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/roles.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/roles.rb
 
 stage_two do
   say_wizard "recipe stage two"
@@ -2070,7 +2070,7 @@ say_recipe 'frontend'
 # >--------------------------- recipes/frontend.rb ---------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/frontend.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/frontend.rb
 
 stage_two do
   say_wizard "recipe stage two"
@@ -2104,7 +2104,7 @@ say_recipe 'pages'
 # >---------------------------- recipes/pages.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/pages.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/pages.rb
 
 stage_two do
   say_wizard "recipe stage two"
@@ -2196,7 +2196,7 @@ say_recipe 'init'
 # >----------------------------- recipes/init.rb -----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/init.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/init.rb
 
 stage_three do
   say_wizard "recipe stage three"
@@ -2271,17 +2271,17 @@ stage_three do
   end
   ### DATABASE SEED ###
   if prefer :authentication, 'devise'
-    copy_from_repo 'db/seeds.rb', :repo => 'https://raw.github.com/RailsApps/rails-devise/master/'
+    copy_from_repo 'db/seeds.rb', :repo => 'https://raw.github.com/timcase/rails-devise/master/'
     if prefer :authorization, 'roles'
-      copy_from_repo 'app/services/create_admin_service.rb', :repo => 'https://raw.github.com/RailsApps/rails-devise-roles/master/'
+      copy_from_repo 'app/services/create_admin_service.rb', :repo => 'https://raw.github.com/timcase/rails-devise-roles/master/'
     elsif prefer :authorization, 'pundit'
-      copy_from_repo 'app/services/create_admin_service.rb', :repo => 'https://raw.github.com/RailsApps/rails-devise-pundit/master/'
+      copy_from_repo 'app/services/create_admin_service.rb', :repo => 'https://raw.github.com/timcase/rails-devise-pundit/master/'
     else
-      copy_from_repo 'app/services/create_admin_service.rb', :repo => 'https://raw.github.com/RailsApps/rails-devise/master/'
+      copy_from_repo 'app/services/create_admin_service.rb', :repo => 'https://raw.github.com/timcase/rails-devise/master/'
     end
   end
   if prefer :apps4, 'rails-stripe-coupons'
-    copy_from_repo 'app/services/create_couponcodes_service.rb', :repo => 'https://raw.github.com/RailsApps/rails-stripe-coupons/master/'
+    copy_from_repo 'app/services/create_couponcodes_service.rb', :repo => 'https://raw.github.com/timcase/rails-stripe-coupons/master/'
     append_file 'db/seeds.rb' do <<-FILE
 CreateCouponcodesService.new.call
 puts 'CREATED PROMOTIONAL CODES'
@@ -2358,7 +2358,7 @@ FILE
   end
   if prefer :apps4, 'rails-stripe-membership-saas'
     inject_into_file 'app/views/layouts/_nav_links_for_auth.html.erb', ", data: { no_turbolink: true }", :after => "new_user_registration_path"
-    copy_from_repo 'app/views/devise/registrations/edit.html.erb', :repo => 'https://raw.github.com/RailsApps/rails-stripe-membership-saas/master/'
+    copy_from_repo 'app/views/devise/registrations/edit.html.erb', :repo => 'https://raw.github.com/timcase/rails-stripe-membership-saas/master/'
   end
   ### GIT ###
   git :add => '-A' if prefer :git, true
@@ -2376,7 +2376,7 @@ say_recipe 'analytics'
 # >-------------------------- recipes/analytics.rb ---------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/analytics.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/analytics.rb
 
 prefs[:analytics] = multiple_choice "Install page-view analytics?", [["None", "none"],
   ["Google Analytics", "ga"],
@@ -2418,7 +2418,7 @@ say_recipe 'deployment'
 # >-------------------------- recipes/deployment.rb --------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/deployment.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/deployment.rb
 
 prefs[:deployment] = multiple_choice "Prepare for deployment?", [["no", "none"],
     ["Heroku", "heroku"],
@@ -2444,7 +2444,7 @@ if prefer :deployment, 'heroku'
   "logo": "https://avatars3.githubusercontent.com/u/788200",
 TEXT
     end
-    append_file 'app.json', "  \"repository\": \"https://github.com/RailsApps/#{prefs[:apps4]}\",\n" if prefs.keys.include?(:apps4)
+    append_file 'app.json', "  \"repository\": \"https://github.com/timcase/#{prefs[:apps4]}\",\n" if prefs.keys.include?(:apps4)
     append_file 'app.json', '  "keywords": [' + "\n"
     append_file 'app.json', '    "Rails Composer",' + "\n"
     append_file 'app.json', '    "RailsApps",' + "\n" + '    "starter",' + "\n" if prefs.keys.include?(:apps4)
@@ -2606,7 +2606,7 @@ config['rubocop'] = yes_wizard?("Use 'rubocop' to ensure that your code conforms
 # >---------------------------- recipes/extras.rb ----------------------------start<
 
 # Application template recipe for the rails_apps_composer. Change the recipe here:
-# https://github.com/RailsApps/rails_apps_composer/blob/master/recipes/extras.rb
+# https://github.com/timcase/rails_apps_composer/blob/master/recipes/extras.rb
 
 ## RVMRC
 rvmrc_detected = false
